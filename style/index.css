@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+h1 {
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: lighter;
+  font-style: oblique;
+  font-size: 51px;
+}
+
+h2 {
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-size: 19px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.container-mail {
+  width: 80%;
+  min-height: 60vh;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+}
+
+.window-mail {
+  width: 100%;
+  position: relative;
+}
+
+.window-mail .window-mail-buttons {
+  position: absolute;
+}
+
+.window-mail .window-mail-buttons .mail-buttons {
+  width: 15px;
+  height: 15px;
+  margin: 3px;
+  border-radius: 50%;
+}
+
+.window-mail .window-mail-buttons .mail-buttons:nth-child(1) {
+  background-color: red;
+}
+
+.window-mail .window-mail-buttons .mail-buttons:nth-child(2) {
+  background-color: orange;
+}
+
+.window-mail .window-mail-buttons .mail-buttons:nth-child(3) {
+  background-color: green;
+}
+
+.window-mail h3 {
+  color: #262a33;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.container-receveir-object-mail {
+  width: 100%;
+}
+
+.subject input {
+  border: none;
+}
+
+.subject input:focus {
+  outline: none;
+}
+
+.container-body-mail {
+  width: 100%;
+  min-height: 100%;
+}
+
+.container-body-mail .body-input {
+  width: 100%;
+  height: 300px;
+  border: none;
+  resize: none;
+}
+
+.container-body-mail .body-input:focus {
+  outline: none;
+}
+
+.btn-send {
+  background-color: #FF0059;
+  outline: none;
+  border: none;
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 30px 15px 30px;
+  border-radius: 12px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-send:hover {
+  background-color: #FFFFFF;
+  color: #270564;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: -webkit-gradient(linear, right bottom, left top, from(#4A04A3), to(#270564));
+  background: linear-gradient(to left top, #4A04A3, #270564);
+}
+/*# sourceMappingURL=index.css.map */

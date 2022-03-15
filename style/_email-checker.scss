@@ -1,0 +1,94 @@
+h1 {
+  color: $main-white;
+  font-family: $poppins;
+  font-weight: lighter;
+  font-style: oblique;
+  font-size: 51px;
+}
+
+h2 {
+  color: $main-white;
+  font-family: $poppins;
+  font-size: 19px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.container-mail {
+  width: 80%;
+  min-height: 60vh;
+  border-radius: 5px;
+  background-color: $main-white;
+}
+
+.window-mail {
+  width: 100%;
+  position: relative;
+  .window-mail-buttons {
+    position: absolute;
+    .mail-buttons {
+      width: 15px;
+      height: 15px;
+      margin: 3px;
+      border-radius: 50%;
+      &:nth-child(1) {
+        background-color: red;
+      }
+      &:nth-child(2) {
+        background-color: orange;
+      }
+      &:nth-child(3) {
+        background-color: green;
+      }
+    }
+  }
+  h3 {
+    color: $main-black;
+    font-family: $poppins;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+  }
+}
+
+.container-receveir-object-mail {
+  width: 100%;
+}
+.subject {
+  input {
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.container-body-mail {
+    width: 100%;
+    min-height: 100%;
+  .body-input {
+    width: 100%;
+    height: 300px;
+    border: none;
+    resize : none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.btn-send {
+  background-color: $main-red;
+  outline: none;
+  border: none;
+  color: $main-white;
+  font-family: $poppins;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 30px 15px 30px;
+  border-radius: 12px;
+  transition: all 0.3s;
+  &:hover {
+    background-color: $main-white;
+    color: $linear-bg-top;
+    transition: all 0.3s;
+  }
+}
