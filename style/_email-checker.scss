@@ -16,7 +16,6 @@ h2 {
 
 .container-mail {
   width: 80%;
-  min-height: 60vh;
   border-radius: 5px;
   background-color: $main-white;
 }
@@ -54,6 +53,7 @@ h2 {
 .container-receveir-object-mail {
   width: 100%;
 }
+
 .subject {
   input {
     border: none;
@@ -62,12 +62,12 @@ h2 {
     }
   }
 }
+
 .container-body-mail {
     width: 100%;
-    min-height: 100%;
   .body-input {
     width: 100%;
-    height: 300px;
+    height: 200px;
     border: none;
     resize : none;
     &:focus {
@@ -75,6 +75,7 @@ h2 {
     }
   }
 }
+
 .btn-send {
   background-color: $main-red;
   outline: none;
@@ -90,5 +91,20 @@ h2 {
     background-color: $main-white;
     color: $linear-bg-top;
     transition: all 0.3s;
+  }
+}
+
+.overall-score {
+  width: 80%;
+  h2 {
+    color: $main-red;
+    font-size: 25px;
+  }
+}
+
+#gauge {
+  height: 300px;
+  svg {
+    margin-top: -40px;
   }
 }
