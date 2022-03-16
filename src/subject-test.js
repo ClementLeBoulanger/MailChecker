@@ -3,15 +3,15 @@ import { SpecialCharacter } from "./test/special-character";
 import { CapitalFirst } from "./test/capital-first";
 
 const SubjectTest = (input) => {
-  let wordcount = WordCount(input)
+  let wordCount = WordCount(input)
   let specialCharacter = SpecialCharacter(input)
   let capitalFirst = CapitalFirst(input)
 
   // Word Count Test
   let resultWordCount
-  if(wordcount >= 6){
+  if(wordCount >= 6){
     resultWordCount = 0
-  } else if (wordcount >= 4){
+  } else if (wordCount >= 4){
     resultWordCount = 1
   } else {
     resultWordCount = 2
