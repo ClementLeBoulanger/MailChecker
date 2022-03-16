@@ -16,8 +16,6 @@ const SubjectTest = (input) => {
   } else {
     resultWordCount = 2
   }
-  console.log(resultWordCount)
-
   // Special Character Test
   let resultSpecialCharacter = 2
   if(specialCharacter > 1){
@@ -25,7 +23,6 @@ const SubjectTest = (input) => {
   } else if (specialCharacter === 1){
     resultSpecialCharacter = 1
   }
-  console.log(resultSpecialCharacter)
 
   // Capital First Test
   let resultCapitalFirst
@@ -34,10 +31,16 @@ const SubjectTest = (input) => {
   } else {
     resultCapitalFirst = 2
   }
-  console.log(resultCapitalFirst)
 
-  let subjectTest = resultWordCount + resultSpecialCharacter + resultCapitalFirst
-  console.log(subjectTest)
+  if(input === ""){
+    let subjectTest = 0
+    console.log(`Your score mail's subject score is : ${subjectTest} /6`)
+    return subjectTest
+  } else {
+    let subjectTest = resultWordCount + resultSpecialCharacter + resultCapitalFirst
+    console.log(`Your score mail's subject score is : ${subjectTest} /6`)
+    return subjectTest
+  }
 }
 
 export { SubjectTest }

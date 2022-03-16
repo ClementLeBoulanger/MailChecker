@@ -10,6 +10,12 @@ btnSend.addEventListener('click', event => {
   event.preventDefault()
   let subjectInput = SubjectInput()
   let bodyInput = BodyInput()
-  SubjectTest(subjectInput)
-  BodyTest(bodyInput)
+
+  let subjectScore = SubjectTest(subjectInput)
+  let bodyScore = BodyTest(bodyInput)
+
+  console.log(subjectScore)
+  console.log(bodyScore)
+  let globalScore = ((subjectScore + bodyScore)/12) * 10
+  console.log(`Your mail's score is ${Math.round(globalScore)} / 10`)
 });

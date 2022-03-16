@@ -9,21 +9,17 @@ const BodyTest = (input) => {
   let secondLineQuestion = SecondLineQuestion(input)
   let paragraphCount = ParagraphCount(input)
 
-  console.log(characterCount)
-  console.log('hello')
-
   // Word Count Test
-  let resultWordCount
+  let resultCharacterCount
   if (characterCount > 1000) {
-    resultWordCount = 0
+    resultCharacterCount = 0
   } else if (characterCount < 300) {
-    resultWordCount = 0
+    resultCharacterCount = 0
   } else if (characterCount > 300 && characterCount < 400) {
-    resultWordCount = 2
+    resultCharacterCount = 2
   } else {
-    resultWordCount = 1
+    resultCharacterCount = 1
   }
-  console.log(resultWordCount)
 
   //Bullet Point
   let resultBulletPoint
@@ -34,7 +30,6 @@ const BodyTest = (input) => {
   } else if (bulletPoint > 1) {
     resultBulletPoint = 2
   }
-  console.log(resultBulletPoint)
 
   //Paragraph Number
   let resultParagraphCount
@@ -45,7 +40,6 @@ const BodyTest = (input) => {
   } else if (paragraphCount > 10 || paragraphCount < 3) {
     resultParagraphCount =0
   }
-  console.log(resultParagraphCount)
 
   //Second Line Question
   let resultSecondLineQuestion
@@ -54,7 +48,16 @@ const BodyTest = (input) => {
   } else {
     resultSecondLineQuestion = 2
   }
-  console.log(resultSecondLineQuestion)
+
+  if (input === "") {
+    let bodyTest = 0
+    console.log(`Your score mail's body score is : ${bodyTest} /8`)
+    return bodyTest
+  } else {
+    let bodyTest = resultCharacterCount + resultBulletPoint + resultParagraphCount + resultSecondLineQuestion
+    console.log(`Your score mail's body score is : ${bodyTest} /8`)
+    return bodyTest
+  }
 }
 
 export { BodyTest }
