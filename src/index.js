@@ -1,21 +1,23 @@
-import { SubjectInput, BodyInput } from './variables';
-import { SubjectTest } from './subject-test';
-import { BodyTest } from './body-test';
+import { SubjectInput, BodyInput, scoreOver, subjectTests, bodyTests, scoreTest } from './variables'
+import { Test } from './test';
 
 const btnSend = document.querySelector('#btn-send')
 const divGlobalScore = document.querySelector('#globalscore')
 
 btnSend.addEventListener('click', event => {
   event.preventDefault()
+
   let subjectInput = SubjectInput()
   let bodyInput = BodyInput()
 
-  let subjectScore = SubjectTest(subjectInput)
-  let bodyScore = BodyTest(bodyInput)
+  let subjectScore = subjectInput === "" ? 0 : new Test(subjectInput, subjectTests).score
+  let bodyScore = bodyInput === "" ? 0: new Test(bodyInput, bodyTests).score
 
-  let globalScore = Math.round(((subjectScore + bodyScore)/12) * 10)
+  let globalScore = ((subjectScore + bodyScore)/scoreTest) * scoreOver
 
-  btnSend.style.display = "none";
+  if(document.querySelector('#gauge')){
+    document.querySelector('#gauge').remove()
+  }
 
   divGlobalScore.insertAdjacentHTML('beforeend', '<div id="gauge" class="gauge"></div>')
 
@@ -23,7 +25,7 @@ btnSend.addEventListener('click', event => {
     id: "gauge",
     value: globalScore,
     min: 0,
-    max: 10,
+    max: scoreOver,
     valueFontColor: "rgb(255, 0, 89)",
     labelFontColor: "rgb(23, 231, 217)",
     counter: true,
