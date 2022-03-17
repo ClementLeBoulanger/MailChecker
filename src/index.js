@@ -1,4 +1,4 @@
-import { SubjectInput, BodyInput, scoreOver, subjectTests, bodyTests, scoreTest } from './variables'
+import { SubjectInput, BodyInput, scoreOver, subjectTests, bodyTests, scoreTest, BuildDetailScore, Marker, scoreColor } from './variables'
 import { Test } from './test';
 
 const btnSend = document.querySelector('#btn-send')
@@ -41,44 +41,21 @@ btnSend.addEventListener('click', event => {
   }
 
   // Insertion des détails de score
-
   let subjectScoreDetail
   subjectInput === "" ? subjectScoreDetail = [{ score: 0, advice: "You don't have subject's mail !" }] : subjectScoreDetail = (new Test(subjectInput, subjectTests).detailscores)
 
   let bodyScoreDetail
   bodyInput === "" ? bodyScoreDetail = [{ score: 0, advice: "You don't have body's mail !" }] : bodyScoreDetail = (new Test(bodyInput, bodyTests).detailscores)
 
-
-
   subjectScoreDetail.forEach(element => {
-    console.log(element)
-    let marker
-    if (element.score === 2) {
-      marker = '<div class="marker green d-flex align-items-center justify-content-center">+</div>'
-    } else if (element.score === 1) {
-      marker = '<div class="marker orange d-flex align-items-center justify-content-center">=</div>'
-    } else {
-      marker = '<div class="marker red d-flex align-items-center justify-content-center">-</div>'
-    }
-    divDetailScore.insertAdjacentHTML('beforeend', `<div class="detail-score mb-2 d-flex justify-content-between align-items-center">${element.advice} ${marker}</div>`)
+    let marker = Marker(element)
+    divDetailScore.insertAdjacentHTML('beforeend', `<div class="detail-score mb-2 d-flex justify-content-between align-items-center"><div class="w-75">${element.advice}</div> ${marker}</div>`)
   })
 
   bodyScoreDetail.forEach(element => {
-    console.log(element)
-    let marker
-    if (element.score === 2) {
-      marker = '<div class="marker green d-flex align-items-center justify-content-center">+</div>'
-    } else if (element.score === 1) {
-      marker = '<div class="marker orange d-flex align-items-center justify-content-center">=</div>'
-    } else {
-      marker = '<div class="marker red d-flex align-items-center justify-content-center">-</div>'
-    }
-    divDetailScore.insertAdjacentHTML('beforeend', `<div class="detail-score mb-2 d-flex justify-content-between align-items-center">${element.advice} ${marker}</div>`)
+    let marker = Marker(element)
+    divDetailScore.insertAdjacentHTML('beforeend', `<div class="detail-score mb-2 d-flex justify-content-between align-items-center"><div class="w-75">${element.advice}</div> ${marker}</div>`)
   })
-
-
-
-
 
   // Parametrage de la Jauge
   const g = new JustGage({
@@ -86,7 +63,7 @@ btnSend.addEventListener('click', event => {
     value: globalScore,
     min: 0,
     max: scoreOver,
-    valueFontColor: "rgb(255, 0, 89)",
+    valueFontColor: scoreColor(globalScore),
     labelFontColor: "rgb(23, 231, 217)",
     counter: true,
     customSectors: {
