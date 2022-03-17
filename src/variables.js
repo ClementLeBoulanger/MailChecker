@@ -6,9 +6,6 @@ import { WordCount } from "./test/word-count";
 import { SpecialCharacter } from "./test/special-character";
 import { CapitalFirst } from "./test/capital-first";
 
-// SCORE OVER
-const scoreOver = 10
-
 // SUBJECT TESTS
 const subjectTests = [WordCount, SpecialCharacter, CapitalFirst]
 
@@ -33,11 +30,11 @@ const BodyInput = () => {
 const Marker = (input) => {
   let marker
   if (input.score === 2) {
-    marker = '<div class="marker green d-flex align-items-center justify-content-center">+</div>'
+    marker = `<div class="marker green d-flex align-items-center justify-content-center">${input.score}</div>`
   } else if (input.score === 1) {
-    marker = '<div class="marker orange d-flex align-items-center justify-content-center">=</div>'
+    marker = `<div class="marker orange d-flex align-items-center justify-content-center">${input.score}</div>`
   } else {
-    marker = '<div class="marker red d-flex align-items-center justify-content-center">-</div>'
+    marker = `<div class="marker red d-flex align-items-center justify-content-center">${input.score}</div>`
   }
 
   return marker
@@ -46,9 +43,9 @@ const Marker = (input) => {
 // SCORE COLOR
 const scoreColor = (input) => {
   let color
-  if (input < 3) {
+  if (input < 5) {
     color = 'rgb(255,0,0)'
-  } else if (input > 3 && input < 7) {
+  } else if (input > 4 && input < 10) {
     color = 'rgb(255,165,0)'
   } else {
     color = 'rgb(0,128,0)'
@@ -57,4 +54,4 @@ const scoreColor = (input) => {
   return color
 }
 
-export { SubjectInput, BodyInput, scoreOver, subjectTests, bodyTests, scoreTest, Marker, scoreColor }
+export { SubjectInput, BodyInput, subjectTests, bodyTests, scoreTest, Marker, scoreColor }

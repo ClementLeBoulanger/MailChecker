@@ -1,4 +1,4 @@
-import { SubjectInput, BodyInput, scoreOver, subjectTests, bodyTests, scoreTest, BuildDetailScore, Marker, scoreColor } from './variables'
+import { SubjectInput, BodyInput, subjectTests, bodyTests, scoreTest, Marker, scoreColor } from './variables'
 import { Test } from './test';
 
 const btnSend = document.querySelector('#btn-send')
@@ -16,7 +16,7 @@ btnSend.addEventListener('click', event => {
   let subjectScore = subjectInput === "" ? 0 : new Test(subjectInput, subjectTests).globalscore
   let bodyScore = bodyInput === "" ? 0: new Test(bodyInput, bodyTests).globalscore
 
-  let globalScore = ((subjectScore + bodyScore)/scoreTest) * scoreOver
+  let globalScore = ((subjectScore + bodyScore))
 
   // Suppression de la Jauge si resoumission
   if(document.querySelector('#gauge')){
@@ -62,7 +62,7 @@ btnSend.addEventListener('click', event => {
     id: "gauge",
     value: globalScore,
     min: 0,
-    max: scoreOver,
+    max: scoreTest,
     valueFontColor: scoreColor(globalScore),
     labelFontColor: "rgb(23, 231, 217)",
     counter: true,
