@@ -108,3 +108,34 @@ h2 {
     margin-top: -40px;
   }
 }
+
+#detailscore {
+  margin-top: -100px;
+}
+
+.detail-score {
+  width: 80%;
+  padding: 15px;
+  background-color: $main-white;
+  border-radius: 5px;
+}
+
+.marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: $main-white;
+  font-size: 20px;
+}
+
+.green {
+  background-color: green;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.red {
+  background-color: red
+}

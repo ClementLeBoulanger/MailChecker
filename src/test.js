@@ -4,13 +4,20 @@ class Test {
     this.functionArray = functionArray
   }
 
-  get score() {
-    let subjectScore = 0
+  get globalscore() {
+    let globalscore = 0
     this.functionArray.forEach(element => {
-      subjectScore = subjectScore + element(this.input)
+      globalscore = globalscore + element(this.input).score
     });
+    return globalscore
+  }
 
-    return subjectScore
+  get detailscores() {
+    let detailscores = []
+    this.functionArray.forEach(element => {
+      detailscores.push(element(this.input))
+    });
+    return detailscores
   }
 }
 

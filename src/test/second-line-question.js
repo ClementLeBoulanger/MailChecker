@@ -3,9 +3,15 @@ const SecondLineQuestion = (input) => {
   let secondLineQuestion = model.test(input)
   let result
   if (secondLineQuestion) {
-    result = 0
+    result = {
+      score: 0,
+      advice: "The second line of your email should not be a question."
+    }
   } else {
-    result = 2
+    result = {
+      score: 2,
+      advice: "No question in the second line, it's good !"
+    }
   }
 
   return result
