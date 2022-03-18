@@ -1,8 +1,8 @@
-# EmailChecker for meeetyourmarket.fr
+# EmailChecker for [meetyourmarket.fr](https://www.meetyourmarket.fr/)
 
 [Voir le site](https://eager-boyd-9e59b9.netlify.app/)
 
-Réalisation d'un EmailChecker qui a pour but de tester l'architecture et le contenu de vos mails suivant des critères prédéfinis. L'interface vous donne accès à un score détaillé suivant chaque critière.
+Réalisation d'un EmailChecker qui a pour but de tester l'architecture et le contenu de vos mails suivant des critères prédéfinis. L'interface vous donne accès à un score détaillé suivant chaque critière. [Lien de l'article](https://www.meetyourmarket.fr/prospection-b2b/)
 
 ![Homepage](https://user-images.githubusercontent.com/84342566/158983168-886688c0-b818-45df-a2bf-a484d0417a2d.png)
 
