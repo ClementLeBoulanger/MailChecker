@@ -133,6 +133,19 @@ h2 {
   border-radius: 5px;
 }
 
+.space {
+  height: 30px;
+}
+
+.detail-score-title {
+  font-family: "Poppins", sans-serif;
+  color: #FFFFFF;
+  font-weight: lighter;
+  font-size: 20px;
+  text-align: left;
+  width: 80%;
+}
+
 .marker {
   width: 30px;
   height: 30px;
