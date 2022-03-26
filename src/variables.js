@@ -7,71 +7,31 @@ import { SpecialCharacter } from "./test/special-character";
 import { CapitalFirst } from "./test/capital-first";
 import { Test } from './test';
 
-// SUBJECT TESTS
-const subjectTests = [WordCount, SpecialCharacter, CapitalFirst]
+const objectTests = [WordCount, SpecialCharacter, CapitalFirst];
+const bodyTests = [BulletPoint, ParagraphCount, SecondLineQuestion, CharacterCount];
 
-// BODY TESTS
-const bodyTests = [BulletPoint, ParagraphCount, SecondLineQuestion, CharacterCount]
+const objectInput = () => document.querySelector('.object-input').value;
+const bodyInput = () => document.querySelector('.body-input').value;
 
-// TEST SCORE
-const scoreTest = (subjectTests.length + bodyTests.length) * 2
+const globalScore = () => {
+  const scoreTest = (objectTests.length + bodyTests.length) * 2;
+  let objectScore = 0;
+  let bodyScore = 0;
 
-// INPUT
-const SubjectInput = () => {
-  let subjectInput = document.querySelector('.subject-input').value
+  if (objectInput() !== "") objectTests.forEach(test => objectScore += new Test(objectInput(), test).score);
+  if (bodyInput() !== "") bodyTests.forEach(test => objectScore += new Test(objectInput(), test).score);
 
-  return subjectInput
+  return (100 * (objectScore + bodyScore) / scoreTest);
 }
 
-const BodyInput = () => {
-  let bodyInput = document.querySelector('.body-input').value
-
-  return bodyInput
-}
-
-// GLOBAL SCORE
-const GlobalScore = () => {
-  let subjectScore = SubjectInput() === "" ? 0 : new Test(SubjectInput(), subjectTests).globalscore
-  let bodyScore = BodyInput() === "" ? 0 : new Test(BodyInput(), bodyTests).globalscore
-
-  return  ((subjectScore + bodyScore))
-}
-
-// MARKER
-const Marker = (input) => {
-  let marker
-  if (input.score === 2) {
-    marker = `<div class="marker shadow green d-flex align-items-center justify-content-center">${input.score}</div>`
-  } else if (input.score === 1) {
-    marker = `<div class="marker shadow orange d-flex align-items-center justify-content-center">${input.score}</div>`
+const scoreSector = (input) => {
+  if (input < 50) {
+    return { color: "#FF0000", textColorClass: 'red', text: "Il y a des améliorations à faire. Corrige ton mail et réessaye encore !" };
+  } else if (50 <= input && input < 80) {
+    return { color: "#FFA500", textColorClass: 'orange', text: "Bien joué mais des améliorations sont encore possibles !" };
   } else {
-    marker = `<div class="marker shadow red d-flex align-items-center justify-content-center">${input.score}</div>`
-  }
-
-  return marker
-}
-
-// DELETE AFTER CLICK
-const deleteAfterClick = (input) => {
-  if (document.querySelectorAll(input)) {
-    document.querySelectorAll(input).forEach(element => {
-      element.remove()
-    })
+    return { color: "#008000", textColorClass: 'green', text: "Bravo !" };
   }
 }
 
-// SCORE COLOR
-const scoreColor = (input) => {
-  let color
-  if (input < 5) {
-    color = 'rgb(255,0,0)'
-  } else if (input > 4 && input < 10) {
-    color = 'rgb(255,165,0)'
-  } else {
-    color = 'rgb(0,128,0)'
-  }
-
-  return color
-}
-
-export { SubjectInput, BodyInput, GlobalScore, subjectTests, bodyTests, scoreTest, Marker, deleteAfterClick, scoreColor }
+export { objectInput, bodyInput, globalScore, objectTests, bodyTests, scoreSector }

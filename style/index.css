@@ -61,11 +61,11 @@ h2 {
   width: 100%;
 }
 
-.subject input {
+.object input {
   border: none;
 }
 
-.subject input:focus {
+.object input:focus {
   outline: none;
 }
 
@@ -115,7 +115,7 @@ h2 {
 }
 
 #gauge {
-  height: 300px;
+  height: 280px;
 }
 
 #gauge svg {
@@ -123,12 +123,11 @@ h2 {
 }
 
 #detailscore {
-  margin-top: -100px;
+  margin-top: -50px;
 }
 
 .detail-score {
   width: 80%;
-  padding: 15px;
   background-color: #FFFFFF;
   border-radius: 5px;
 }
@@ -146,6 +145,16 @@ h2 {
   width: 80%;
 }
 
+.detail-score-subtitle {
+  font-family: "Poppins", sans-serif;
+  color: #FFFFFF;
+  font-weight:lighter;
+  font-size: 14px;
+  text-align: left;
+  text-transform: uppercase;
+  width: 80%;
+}
+
 .marker {
   width: 30px;
   height: 30px;
@@ -154,16 +163,28 @@ h2 {
   font-size: 20px;
 }
 
+.bg-green {
+  background-color: #008000;
+}
+
+.bg-orange {
+  background-color: #FFA500;
+}
+
+.bg-red {
+  background-color: #FF0000;;
+}
+
 .green {
-  background-color: green;
+  color: #008000;
 }
 
 .orange {
-  background-color: orange;
+  color: #FFA500;
 }
 
 .red {
-  background-color: red;
+  color: #FF0000;
 }
 
 body {

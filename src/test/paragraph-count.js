@@ -1,27 +1,25 @@
 const ParagraphCount = (input) => {
-  let count = input.split(/\n{2}/).length
-  let result
+  const count = input.split(/\n{2}/).length;
+
   if (count >= 3 && count <= 7) {
-    result = {
+    return {
       label: "Number of paragraph",
       score: 2,
       advice: "Your email has the right number of paragraphs."
-    }
+    };
   } else if (count > 7 && count < 10) {
-    result = {
+    return {
       label: "Number of paragraph",
       score: 1,
       advice: "Your email should contain between 3 and 7 paragraphs."
-    }
+    };
   } else if (count > 10 || count < 3) {
-    result = {
+    return {
       label: "Number of paragraph",
       score: 0,
       advice: "Your email should contain between 3 and 7 paragraphs."
-    }
+    };
   }
-
-  return result
 }
 
 export { ParagraphCount }

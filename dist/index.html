@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <link rel="stylesheet" href="./style/index.css">
-  <script src="./src/gauge/justgage.js"></script>
-  <script src="./src/gauge/raphael-2.1.4.min.js"></script>
+  <link rel="stylesheet" href="../style/index.css">
+  <script src="../src/gauge/justgage.js"></script>
+  <script src="../src/gauge/raphael-2.1.4.min.js"></script>
 
   <title>Mail Scoring</title>
 </head>
@@ -36,7 +36,7 @@
 
         <div class="container-receiver-object-mail border-bottom">
           <div class="receiver p-2">To : emailchecker@meetyourmarket.fr</div>
-          <div class="subject p-2 w-100">Subject : <input class="subject-input w-75" name="subject" type="text" placeholder="Your subject here..."/></div>
+          <div class="object p-2 w-100">Object : <input class="object-input w-75" name="object" type="text" placeholder="Your object here..."/></div>
         </div>
 
         <div class="container-body-mail p-2">
@@ -50,16 +50,14 @@
     </div>
   </form>
 
-  <div class="container pb-5 pt-4 d-flex flex-column align-items-center" id="globalscore">
+  <div class="container d-flex flex-column align-items-center" id="globalscore">
       <!-- HERE GLOBAL SCORE -->
   </div>
 
-  <div class="container pb-5 pt-4 d-flex flex-column align-items-center" id="detailscore">
+  <div class="container pb-5 d-flex flex-column align-items-center" id="detailscore">
     <!-- HERE DETAIL SCORE -->
   </div>
 
-
-
-  <script src="./dist/main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
