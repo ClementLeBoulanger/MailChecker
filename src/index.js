@@ -1,32 +1,89 @@
+
+import "bootstrap";
 import "./stylesheets/index.scss";
 import JustGage from "justgage";
 import { Scoring } from './scoring';
-import { Test } from './test';
+import { Test } from "./test";
+const wordings = require("./wordings.json");
 
-const btnSend = document.querySelector('#btn-send');
-const divGlobalScore = document.querySelector('#global-score');
-const divDetailScore = document.querySelector('#detail-score');
+addTestForm();
+addGlobalScore();
+addDetailScore();
+addBtnEventListener();
 
-btnSend.addEventListener('click', event => {
-  event.preventDefault();
+function addTestForm() {
+  document.body.insertAdjacentHTML('beforeend', `
+    <form class="mb-3">
+      <div class="container pt-5 d-flex justify-content-center">
+        <div class="container-mail shadow">
 
-  const objectInput = document.querySelector('.object-input').value;
-  const bodyInput = document.querySelector('.body-input').value;
-  const scoring = new Scoring(objectInput, bodyInput);
+          <div class="window-mail p-2 border-bottom d-flex text-center">
+            <div class="window-mail-buttons d-flex">
+              <div class="mail-buttons"></div>
+              <div class="mail-buttons"></div>
+              <div class="mail-buttons"></div>
+            </div>
+            <h3 class="flex-fill text">meetyourmarket.fr</h3>
+          </div>
 
-  cleanPreviousScoring();
-  addGauge(scoring);
-  addScoreDescription(scoring);
-  addScoreDetails(scoring)
-});
+          <div class="container-receiver-object-mail border-bottom">
+            <div class="receiver p-2">${wordings.to} : emailchecker@meetyourmarket.fr</div>
+            <div class="object p-2 w-100">${wordings.object} :
+              <input class="object-input w-75" name="object" type="text" placeholder="${wordings.objectPlaceholder}"/>
+            </div>
+          </div>
 
-function cleanPreviousScoring() {
+          <div class="container-body-mail p-2">
+            <textarea class="body-input" name="body" type="text-area" placeholder="${wordings.bodyPlaceholder}"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="container d-flex justify-content-center btn-container">
+        <button class="btn-send shadow mt-4" id="btn-send" type="submit">💌 ${wordings.testYourEmail}</button>
+      </div>
+    </form>
+  `);
+}
+
+function addGlobalScore() {
+  document.body.insertAdjacentHTML(
+    'beforeend', `<div class="container d-flex justify-content-center" id="global-score"></div>`);
+}
+
+function addDetailScore() {
+  document.body.insertAdjacentHTML(
+    'beforeend', `<div class="container pb-5 d-flex flex-column align-items-center" id="detail-score"></div>`);
+}
+
+function addBtnEventListener() {
+  const btnSend = document.querySelector('#btn-send');
+
+  btnSend.addEventListener('click', event => {
+    event.preventDefault();
+
+    const divDetailScore = document.querySelector('#detail-score');
+    const objectInput = document.querySelector('.object-input').value;
+    const bodyInput = document.querySelector('.body-input').value;
+    const scoring = new Scoring(objectInput, bodyInput);
+
+    cleanPreviousScoring(divDetailScore);
+    addGauge(scoring);
+    addScoreDescription(divDetailScore, scoring);
+    addScoreDetails(divDetailScore, scoring)
+  });
+}
+
+
+function cleanPreviousScoring(divDetailScore) {
   if (document.querySelector('#gauge')) document.querySelector('#gauge').remove(); // Remove previous gauge
   divDetailScore.innerHTML = "" // Remove detail scoring
 }
 
 function addGauge(scoring) {
-  divGlobalScore.insertAdjacentHTML('beforeend', '<div id="gauge" class="gauge"></div>') // Add gauge container
+  const divGlobalScore = document.querySelector('#global-score');
+
+  divGlobalScore.insertAdjacentHTML('beforeend', '<div id="gauge"></div>') // Add gauge container
 
   // Add gauge
   new JustGage({
@@ -46,41 +103,41 @@ function addGauge(scoring) {
   });
 }
 
-function addScoreDescription(scoring) {
+function addScoreDescription(divDetailScore, scoring) {
   divDetailScore.insertAdjacentHTML('beforeend', scoring.descriptionHtml)
 }
 
-function addScoreDetails(scoring) {
+function addScoreDetails(divDetailScore, scoring) {
   let testsGroupByScoreAndByType = scoring.groupTestsByScoreAndByType;
 
-  addPointsScoreDetails("✅ Les points forts", testsGroupByScoreAndByType.strongPoints);
-  addPointsScoreDetails("🛠 Les points à améliorer", testsGroupByScoreAndByType.pointsToReview);
+  addPointsScoreDetails(divDetailScore, `${wordings.strongPointsTitle}`, testsGroupByScoreAndByType.strongPoints);
+  addPointsScoreDetails(divDetailScore, `${wordings.pointsToReviewTitle}`, testsGroupByScoreAndByType.pointsToReview);
 }
 
-function addPointsScoreDetails(title, groupedTests) {
+function addPointsScoreDetails(divDetailScore, title, groupedTests) {
   if (![...groupedTests.objectTests, ...groupedTests.bodyTests].length) return;
 
   divDetailScore.insertAdjacentHTML('beforeend', scoreDetailsTitleHtml(title))
 
   if (groupedTests.objectTests.length) {
-    divDetailScore.insertAdjacentHTML('beforeend', scoreDetailsSubtitleHtml("Objet"))
-    groupedTests.objectTests.forEach(test => insertScoreDetail(test));
+    divDetailScore.insertAdjacentHTML('beforeend', scoreDetailsSubtitleHtml(wordings.object))
+    groupedTests.objectTests.forEach(test => insertScoreDetail(divDetailScore, test));
   }
 
   if (groupedTests.bodyTests.length) {
-    divDetailScore.insertAdjacentHTML('beforeend', scoreDetailsSubtitleHtml("Corps"))
-    groupedTests.bodyTests.forEach(test => insertScoreDetail(test));
+    divDetailScore.insertAdjacentHTML('beforeend', scoreDetailsSubtitleHtml(wordings.body))
+    groupedTests.bodyTests.forEach(test => insertScoreDetail(divDetailScore, test));
   }
 }
 
 function scoreDetailsTitleHtml(title) {
-  return `<div class="detail-score-title mt-4 mb-2 d-flex justify-content-between align-items-center"><strong>${title}</strong></div>`;
+  return `<div class="detail-score-title fw-light mt-4 mb-2 d-flex justify-content-between align-items-center">${title}</div>`;
 }
 
 function scoreDetailsSubtitleHtml(title) {
-  return `<div class="detail-score-subtitle mb-2 d-flex justify-content-between align-items-center"><strong>${title}</strong></div>`;
+  return `<div class="detail-score-subtitle mb-2 d-flex justify-content-between align-items-center">${title}</div>`;
 }
 
-function insertScoreDetail(test) {
-  divDetailScore.insertAdjacentHTML('beforeend', test.html)
+function insertScoreDetail(divDetailScore, test) {
+  divDetailScore.insertAdjacentHTML('beforeend', test.html || Test.html(test.label, test.advice, test.score))
 };
