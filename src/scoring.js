@@ -1,15 +1,15 @@
 import { wordCount } from "./tests/word-count";
 import { specialCharacter } from "./tests/special-character";
 import { capitalFirst } from "./tests/capital-first";
-import { bulletPoint } from "./tests/bullet-point";
+import { bulletPoints } from "./tests/bullet-points";
 import { paragraphCount } from "./tests/paragraph-count";
 import { secondLineQuestion } from "./tests/second-line-question";
 import { characterCount } from "./tests/character-count";
 import { Test } from './test';
-
+const wordings = require("./wordings.json");
 export class Scoring {
   static get objectTests() { return [wordCount, specialCharacter, capitalFirst] };
-  static get bodyTests() { return [bulletPoint, paragraphCount, secondLineQuestion, characterCount] };
+  static get bodyTests() { return [bulletPoints, paragraphCount, secondLineQuestion, characterCount] };
   static get maxScore() { return (this.objectTests.length + this.bodyTests.length) * 2 };
   static get sectors() {
     return {
@@ -18,21 +18,21 @@ export class Scoring {
         hi: 49,
         color: "#FF0000",
         textColorClass: 'red',
-        text: "Il y a des améliorations à faire. Corrige ton mail et réessaye encore !",
+        text: wordings.sectorTexts.zero,
       },
       1: {
         lo: 50,
         hi: 79,
         color: "#FFA500",
         textColorClass: 'orange',
-        text: "Bien joué mais des améliorations sont encore possibles !",
+        text: wordings.sectorTexts.one,
       },
       2: {
         lo: 80,
         hi: 100,
         color: "#008000",
         textColorClass: 'green',
-        text: "Bravo !",
+        text: wordings.sectorTexts.two,
       },
     }
   }
@@ -85,14 +85,14 @@ export class Scoring {
   }
 
   get descriptionHtml() {
-    return `<div class="detail-score-title font-weight-bold ${this.textColorClass}">${this.text}</div>`;
+    return `<div class="detail-score-title fw-bold ${this.textColorClass}">${this.text}</div>`;
   }
 
   get objectScoreDetails() {
     if (this.objectInput !== "") {
       return this.constructor.objectTests.map(testFunction => new Test(this.objectInput, testFunction));
     } else {
-      return [{ label: "Mail Object", score: 0, advice: "You don't have object's mail !" }];
+      return [{ score: 0, label: wordings.mailObject, advice: wordings.noObject }];
     }
   }
 
@@ -100,7 +100,7 @@ export class Scoring {
     if (this.bodyInput !== "") {
       return this.constructor.bodyTests.map(testFunction => new Test(this.bodyInput, testFunction));
     } else {
-      return [{ label: "Mail Body", score: 0, advice: "You don't have body's mail !" }];
+      return [{ score: 0, label: wordings.mailBody, advice: wordings.noBody }];
     }
   }
 

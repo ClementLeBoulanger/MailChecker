@@ -1,23 +1,25 @@
+const wordings = require("../wordings.json");
+
 const specialCharacter = (input) => {
-  const count = input.split(/[\+?{}.!]/).length - 1;
+  const count = (input.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?§]/g) || []).length;
 
   if (count > 1) {
     return {
-      label: "Special character",
       score: 0,
-      advice: "Too many special characters! The ideal is not to use any."
+      label: wordings.tests.specialCharacter.label,
+      advice: `${count} ${wordings.specialCharacters}. ${wordings.tests.specialCharacter.advices.zero}`
     };
   } else if (count === 0) {
     return {
-      label: "Special character",
       score: 2,
-      advice: "No special characters, great !"
+      label: wordings.tests.specialCharacter.label,
+      advice: wordings.tests.specialCharacter.advices.two
     };
   } else if (count === 1) {
     return {
-      label: "Special character",
       score: 1,
-      advice: "Too many special characters! The ideal is not to use any."
+      label: wordings.tests.specialCharacter.label,
+      advice: wordings.tests.specialCharacter.advices.one
     };
   }
 }

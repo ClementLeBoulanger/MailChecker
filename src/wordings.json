@@ -1,0 +1,85 @@
+{
+  "to": "À",
+  "object": "Objet",
+  "objectPlaceholder": "Votre objet ici ...",
+  "body": "Corps",
+  "bodyPlaceholder": "Votre corps de mail ici ...",
+  "testYourEmail": "Tester votre email",
+  "strongPointsTitle": "✅ Les points forts",
+  "pointsToReviewTitle": "🛠 Les points à améliorer",
+  "sectorTexts": {
+    "zero": "Il y a des améliorations à faire. Corrigez votre mail et réessayez encore !",
+    "one": "Bien joué mais des améliorations sont encore possibles !",
+    "two": "Bravo !"
+  },
+  "mailObject": "Objet de l'email",
+  "noObject": "Vous n'avez pas entré d'objet d'email !",
+  "mailBody": "Corps de l'email",
+  "noBody": "Vous n'avez pas entré de corps d'email !",
+  "character": "caractère",
+  "paragraph": "paragraphe",
+  "specialCharacters": "caractères spéciaux",
+  "word": "mot",
+  "tests": {
+    "bulletPoints": {
+      "label": "Bullet points",
+      "advices": {
+        "zero": "Vous n'avez pas de bullet point, mettez-en !",
+        "one": "Vous n'avez qu'un seul bullet point, mettez-en plus !",
+        "two": "Vous avez plus d'un bullet point, parfait !"
+      }
+    },
+    "capitalFirst": {
+      "label": "Pas de majuscule en début d'objet",
+      "advices": {
+        "zero": "Votre objet ne devrait pas commencer par une majuscule.",
+        "two": "Bravo, votre objet ne commence pas par une majuscule !"
+      }
+    },
+    "characterCount": {
+      "label": "Nombre de caractères",
+      "advices": {
+        "zero": {
+          "under": "Votre email ne contient pas assez de caractères. Essayez entre 300 et 400 caractères.",
+          "over": "Votre email contient trop de caractères. Essayez entre 300 et 400 caractères."
+        },
+        "one": "La longueur de votre email peut être optimisé. Essayez entre 300 et 400 caractères.",
+        "two": "Bravo, votre email a le bon nombre de caractères (entre 300 et 400) !"
+      }
+    },
+    "paragraphCount": {
+      "label": "Nombre de paragraphes",
+      "advices": {
+        "zero": "Votre email doit contenir entre 3 et 7 paragraphes.",
+        "one": "Votre email contient un peu trop de paragraphes. Il doit en contenir entre 3 et 7.",
+        "two": "Bravo, votre email contient le bon nombre de paragraphes (entre 3 et 7),"
+      }
+    },
+    "secondLineQuestion": {
+      "label": "Pas de question en deuxième ligne",
+      "advices": {
+        "zero": "La deuxième ligne de votre email ne devrait pas être une question.",
+        "two": "Pas de question en deuxième ligne, bravo !"
+      }
+    },
+    "specialCharacter": {
+      "label": "Caractères spéciaux",
+      "advices": {
+        "zero": "Trop de caractères spéciaux dans l'objet ! L'idéal est d'en utiliser aucun.",
+        "one": "Un caractère spécial utilisé ! L'idéal est d'en utiliser aucun.",
+        "two": "Aucun caractère spécial utilisé, parfait !"
+      }
+    },
+    "wordCount": {
+      "label": "Nombre de mots",
+      "advices": {
+        "zero": {
+          "zero": "Pas de mot dans l'objet !",
+          "over": "Le nombre de mots utilisé est trop élevé, essayez plutôt entre 1 et 4 mots !"
+        },
+        "one": "Le nombre de mots utilisé est un peu trop élevé, essayez plutôt entre 1 et 4 mots !",
+        "two": "Parfait, la longueur de votre objet est optimisée (entre 1 et 4 mots) ! "
+      }
+    }
+  }
+}

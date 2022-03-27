@@ -1,19 +1,27 @@
-const capitalFirst = (input) => {
-  const hasCapitalFirst = /[A-Z]/.test(input.charAt(0));
+const wordings = require("../wordings.json");
 
-  if (hasCapitalFirst) {
+const capitalFirst = (input) => {
+  if (firstIsUppercase(input)) {
     return {
-      label: "Start with capital letter",
       score: 0,
-      advice: "Your email title should not start with a capital letter"
+      label: wordings.tests.capitalFirst.label,
+      advice: wordings.tests.capitalFirst.advices.zero
     }
   } else {
     return {
-      label: "Start with capital letter",
       score: 2,
-      advice: "Good job, your email title doesn't start with a capital letter."
+      label: wordings.tests.capitalFirst.label,
+      advice: wordings.tests.capitalFirst.advices.two
     }
   }
+}
+
+const firstIsUppercase = (str) => {
+  if (str.length === 0) return false;
+
+  const firstLetter = str[0];
+
+  return !!(firstLetter.toUpperCase() === firstLetter && firstLetter !== firstLetter.toLowerCase());
 }
 
 export { capitalFirst }

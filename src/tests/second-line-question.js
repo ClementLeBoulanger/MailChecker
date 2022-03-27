@@ -1,17 +1,19 @@
+const wordings = require("../wordings.json");
+
 const secondLineQuestion = (input) => {
-  const hasQuestionInSecondLine = /^.*\n{1}.*[?]+/.test(input);
+  const hasQuestionInSecondLine = /^.*\n{1,}.*[?]+/.test(input);
 
   if (hasQuestionInSecondLine) {
     return {
-      label: "Question in second line",
       score: 0,
-      advice: "The second line of your email should not be a question."
+      label: wordings.tests.secondLineQuestion.label,
+      advice: wordings.tests.secondLineQuestion.advices.zero
     };
   } else {
     return {
-      label: "Question in second line",
       score: 2,
-      advice: "No question in the second line, it's good !"
+      label:  wordings.tests.secondLineQuestion.label,
+      advice: wordings.tests.secondLineQuestion.advices.two
     };
   }
 }

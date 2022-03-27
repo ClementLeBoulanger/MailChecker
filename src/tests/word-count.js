@@ -1,29 +1,33 @@
-const wordCount = (input) => {
-  const count = input.split(/\b\w+\b/).length - 1
+const wordings = require("../wordings.json");
 
-  if (count >= 6) {
+const wordCount = (input) => {
+  const cleanInput = input.replaceAll(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?§]/g, ' ');
+  const wordArray = cleanInput.split(' ');
+  const count = wordArray.filter(word => word !== '').length;
+
+  if (count > 6) {
     return {
-      label: "Number of word",
       score: 0,
-      advice: "The number of words is too high, prefer a number of words between 1 and 4 !"
+      label: wordings.tests.wordCount.label,
+      advice: `${count} ${wordings.word}s. ${wordings.tests.wordCount.advices.zero.over}`
     };
-  } else if (count >= 4) {
+  } else if (count > 4) {
     return {
-      label: "Number of word",
       score: 1,
-      advice: "The number of words is too high, prefer a number of words between 1 and 4 !"
+      label: wordings.tests.wordCount.label,
+      advice: `${count} ${wordings.word}s. ${wordings.tests.wordCount.advices.one}`
     };
-  } else if (count === 0){
+  } else if (count === 0) {
     return {
-      label: "Number of word",
       score: 0,
-      advice: "No email object !"
+      label: wordings.tests.wordCount.label,
+      advice: wordings.tests.wordCount.advices.zero.zero
     };
   } else {
     return {
-      label: "Number of word",
       score: 2,
-      advice: "Good job ! The length of your email object is optimised ! "
+      label: wordings.tests.wordCount.label,
+      advice: `${count} ${wordings.word}${count < 2 ? '' : 's'}. ${wordings.tests.wordCount.advices.two}`
     };
   }
 }
