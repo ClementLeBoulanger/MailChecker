@@ -103,10 +103,7 @@ h2 {
 }
 
 #gauge {
-  height: 280px;
-  svg {
-    margin-top: -40px;
-  }
+  height: 200px;
 }
 
 #detailscore {
@@ -123,23 +120,20 @@ h2 {
   height: 30px;
 }
 
-.detail-score-title {
+.detail-score-title, .detail-score-subtitle {
   font-family: $poppins;
   color: $main-white;
-  font-weight:lighter;
-  font-size: 20px;
   text-align: left;
   width: 80%;
 }
 
+.detail-score-title {
+  font-size: 20px;
+}
+
 .detail-score-subtitle {
-  font-family: $poppins;
-  color: $main-white;
-  font-weight:lighter;
   font-size: 14px;
-  text-align: left;
   text-transform: uppercase;
-  width: 80%;
 }
 
 .marker {
