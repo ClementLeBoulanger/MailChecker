@@ -1,4 +1,4 @@
-const CharacterCount = (input) => {
+const characterCount = (input) => {
   const count = input.length;
 
   if (count > 1000) {
@@ -28,4 +28,4 @@ const CharacterCount = (input) => {
   }
 }
 
-export { CharacterCount }
+export { characterCount }

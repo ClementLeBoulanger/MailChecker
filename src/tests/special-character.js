@@ -1,4 +1,4 @@
-const SpecialCharacter = (input) => {
+const specialCharacter = (input) => {
   const count = input.split(/[\+?{}.!]/).length - 1;
 
   if (count > 1) {
@@ -22,4 +22,4 @@ const SpecialCharacter = (input) => {
   }
 }
 
-export { SpecialCharacter }
+export { specialCharacter }

@@ -1,8 +1,7 @@
-const SecondLineQuestion = (input) => {
-  const model = /^.*\n{1}.*[?]+/;
-  const secondLineQuestion = model.test(input);
+const secondLineQuestion = (input) => {
+  const hasQuestionInSecondLine = /^.*\n{1}.*[?]+/.test(input);
 
-  if (secondLineQuestion) {
+  if (hasQuestionInSecondLine) {
     return {
       label: "Question in second line",
       score: 0,
@@ -17,4 +16,4 @@ const SecondLineQuestion = (input) => {
   }
 }
 
-export { SecondLineQuestion }
+export { secondLineQuestion }

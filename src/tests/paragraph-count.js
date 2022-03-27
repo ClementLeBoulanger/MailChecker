@@ -1,4 +1,4 @@
-const ParagraphCount = (input) => {
+const paragraphCount = (input) => {
   const count = input.split(/\n{2}/).length;
 
   if (count >= 3 && count <= 7) {
@@ -22,4 +22,4 @@ const ParagraphCount = (input) => {
   }
 }
 
-export { ParagraphCount }
+export { paragraphCount }

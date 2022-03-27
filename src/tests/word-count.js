@@ -1,4 +1,4 @@
-const WordCount = (input) => {
+const wordCount = (input) => {
   const count = input.split(/\b\w+\b/).length - 1
 
   if (count >= 6) {
@@ -28,4 +28,4 @@ const WordCount = (input) => {
   }
 }
 
-export { WordCount }
+export { wordCount }

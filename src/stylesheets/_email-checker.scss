@@ -151,25 +151,25 @@ h2 {
 }
 
 .bg-green {
-  background-color: #008000;
+  background-color: $scoring-green;
 }
 
 .bg-orange {
-  background-color: #FFA500;
+  background-color: $scoring-orange;
 }
 
 .bg-red {
-  background-color: #FF0000;;
+  background-color: $scoring-red;
 }
 
 .green {
-  color: #008000;
+  color: $scoring-green;
 }
 
 .orange {
-  color: #FFA500;
+  color: $scoring-orange;
 }
 
 .red {
-  color: #FF0000;
+  color: $scoring-red;
 }

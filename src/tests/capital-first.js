@@ -1,8 +1,7 @@
-const CapitalFirst = (input) => {
-  const model = /[A-Z]/;
-  const capitalFirst = model.test(input.charAt(0));
+const capitalFirst = (input) => {
+  const hasCapitalFirst = /[A-Z]/.test(input.charAt(0));
 
-  if (capitalFirst) {
+  if (hasCapitalFirst) {
     return {
       label: "Start with capital letter",
       score: 0,
@@ -17,4 +16,4 @@ const CapitalFirst = (input) => {
   }
 }
 
-export { CapitalFirst }
+export { capitalFirst }

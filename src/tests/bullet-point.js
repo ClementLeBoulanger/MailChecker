@@ -1,4 +1,4 @@
-const BulletPoint = (input) => {
+const bulletPoint = (input) => {
   const count = input.split(/[\u2022,\u2023,\u2043,\u2219]/).length - 1;
 
   if (count === 0) {
@@ -22,4 +22,4 @@ const BulletPoint = (input) => {
   }
 }
 
-export { BulletPoint }
+export { bulletPoint }

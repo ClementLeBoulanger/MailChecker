@@ -1,1 +1,4 @@
 node_modules
+.DS_Store
+test-false.txt
+test-good.txt
