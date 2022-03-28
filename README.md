@@ -16,4 +16,4 @@ Réalisation d'un EmailChecker qui a pour but de tester l'architecture et le con
 
 **Webpack :** Version 5.70
 
-**Hebergement :** [Netlify](https://www.netlify.com/)
+**Hebergement :** [Github pages](https://kuartz-org.github.io/mail-checker/)
