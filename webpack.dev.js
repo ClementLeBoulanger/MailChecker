@@ -7,4 +7,12 @@ module.exports = merge(common, {
   devServer: {
     static: './dist',
   },
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
 });
