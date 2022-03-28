@@ -23,3 +23,5 @@ L'interface vous donne accès à un score détaillé suivant chaque critère. [L
 ```html
 <iframe style="width: 100%; height: 100%;" frameborder="0" src="https://kuartz-org.github.io/mail-checker/"></iframe>
 ```
+
+***Wordings de l'app :** [wordings.json](https://github.com/kuartz-org/mail-checker/blob/master/src/wordings.json)
